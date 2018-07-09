@@ -1,32 +1,33 @@
 library ieee;
-use ieee.std_logic_1164.ALL;
-use ieee.math_real.all;
-use ieee.numeric_std.all;
-
-entity sequencer is
-  port(
-    init: in std_logic;
-    index: in std_logic_vector(4 downto 0);
-    n: out std_logic_vector(1 downto 0)
-  );
-end sequencer;
-
-architecture behavior of sequencer is
-  type sequence_type is array(0 to (2**index'length)-1) of std_logic_vector(n'range);
-  signal sequence : sequence_type;
+use ieee.std_logic_1164.all;
+entity lfsr is
+port (
+  clk           : in  std_logic;
+  rstb          : in  std_logic;
+  sync_reset    : in  std_logic;
+  seed          : in  std_logic_vector (6 downto 0);
+  en            : in  std_logic;
+  lsfr          : out std_logic_vector (6 downto 0));
+end lfsr;
+architecture rtl of lfsr is
+signal r_lfsr           : std_logic_vector (7 downto 1);
 begin
-  process(init)
-      variable seed1, seed2: positive;               -- seed values for random generator
-      variable rand: real;   -- random real-number value in range 0 to 1.0
-      variable range_of_rand : real := 3.0;    -- the range of random values created will be 0 to +3.
-  begin
-    if init = '1' then
-      generate_rand: for i in 0 to sequence'length-1 loop
-        uniform(seed1, seed2, rand);   -- generate random number
-        sequence(i) <= std_logic_vector(to_unsigned(integer(rand*range_of_rand), sequence(i)'length));
-      end loop generate_rand;
+lsfr  <= r_lfsr(7 downto 1);
+p_lfsr : process (clk,rstb) begin
+  if (rstb = '0') then
+    r_lfsr   <= (others=>'1');
+  elsif rising_edge(i_clk) then
+    if(sync_reset='1') then
+      r_lfsr   <= i_seed;
+    elsif (en = '1') then
+      r_lfsr(7) <= r_lfsr(1);
+      r_lfsr(6) <= r_lfsr(7) xor r_lfsr(1);
+      r_lfsr(5) <= r_lfsr(6);
+      r_lfsr(4) <= r_lfsr(5);
+      r_lfsr(3) <= r_lfsr(4);
+      r_lfsr(2) <= r_lfsr(3);
+      r_lfsr(1) <= r_lfsr(2);
     end if;
-  end process;
-
-  n <= sequence(to_integer(unsigned(index)));
-end behavior;
+  end if;
+end process p_lfsr;
+end architecture rtl;
