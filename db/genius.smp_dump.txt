@@ -1,0 +1,8 @@
+
+State Machine - |genius|control:inst|state
+Name state.game_over state.gen2 state.gen1 state.gen0 state.init 
+state.init 0 0 0 0 0 
+state.gen0 0 0 0 1 1 
+state.gen1 0 0 1 0 1 
+state.gen2 0 1 0 0 1 
+state.game_over 1 0 0 0 1 

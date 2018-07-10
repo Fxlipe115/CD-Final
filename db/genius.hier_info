@@ -1,0 +1,213 @@
+|genius
+led0 <= mux21:inst5.o
+button_0 => mux21:inst5.a
+button_0 => control:inst.button_0
+clk => sequence:inst1.clk
+clk => control:inst.clk
+clk => lfsr:inst2.clk
+rst => control:inst.rst
+rst => lfsr:inst2.rstb
+button_1 => control:inst.button_1
+button_1 => mux21:inst4.a
+button_2 => control:inst.button_2
+button_2 => mux21:inst6.a
+button_3 => control:inst.button_3
+button_3 => mux21:inst7.a
+dif[0] => difficulty_decod:inst9.d_in[0]
+dif[1] => difficulty_decod:inst9.d_in[1]
+seed[0] => lfsr:inst2.seed[0]
+seed[1] => lfsr:inst2.seed[1]
+seed[2] => lfsr:inst2.seed[2]
+seed[3] => lfsr:inst2.seed[3]
+seed[4] => lfsr:inst2.seed[4]
+seed[5] => lfsr:inst2.seed[5]
+seed[6] => lfsr:inst2.seed[6]
+led1 <= mux21:inst4.o
+led2 <= mux21:inst6.o
+led3 <= mux21:inst7.o
+score[0] <= control:inst.score[0]
+score[1] <= control:inst.score[1]
+score[2] <= control:inst.score[2]
+score[3] <= control:inst.score[3]
+score[4] <= control:inst.score[4]
+
+
+|genius|mux21:inst5
+a => o.DATAB
+b => o.DATAA
+s => o.OUTPUTSELECT
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|genius|decod_led:inst8
+n[0] => Mux0.IN5
+n[0] => Mux1.IN5
+n[0] => Mux2.IN5
+n[0] => Mux3.IN5
+n[1] => Mux0.IN4
+n[1] => Mux1.IN4
+n[1] => Mux2.IN4
+n[1] => Mux3.IN4
+a <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+b <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+c <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+d <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|genius|sequence:inst1
+clk => ram~7.CLK
+clk => ram~0.CLK
+clk => ram~1.CLK
+clk => ram~2.CLK
+clk => ram~3.CLK
+clk => ram~4.CLK
+clk => ram~5.CLK
+clk => ram~6.CLK
+clk => addr_reg[0].CLK
+clk => addr_reg[1].CLK
+clk => addr_reg[2].CLK
+clk => addr_reg[3].CLK
+clk => addr_reg[4].CLK
+clk => ram.CLK0
+addr[0] => ram~4.DATAIN
+addr[0] => addr_reg[0].DATAIN
+addr[0] => ram.WADDR
+addr[1] => ram~3.DATAIN
+addr[1] => addr_reg[1].DATAIN
+addr[1] => ram.WADDR1
+addr[2] => ram~2.DATAIN
+addr[2] => addr_reg[2].DATAIN
+addr[2] => ram.WADDR2
+addr[3] => ram~1.DATAIN
+addr[3] => addr_reg[3].DATAIN
+addr[3] => ram.WADDR3
+addr[4] => ram~0.DATAIN
+addr[4] => addr_reg[4].DATAIN
+addr[4] => ram.WADDR4
+data[0] => ram~6.DATAIN
+data[0] => ram.DATAIN
+data[1] => ram~5.DATAIN
+data[1] => ram.DATAIN1
+we => ram~7.DATAIN
+we => ram.WE
+q[0] <= ram.DATAOUT
+q[1] <= ram.DATAOUT1
+
+
+|genius|control:inst
+clk => count[0].CLK
+clk => count[1].CLK
+clk => count[2].CLK
+clk => count[3].CLK
+clk => count[4].CLK
+clk => state~5.DATAIN
+rst => state~7.DATAIN
+rst => count[4].ENA
+rst => count[3].ENA
+rst => count[2].ENA
+rst => count[1].ENA
+rst => count[0].ENA
+difficulty[0] => dif[0].DATAIN
+difficulty[1] => dif[1].DATAIN
+difficulty[2] => dif[2].DATAIN
+difficulty[3] => dif[3].DATAIN
+difficulty[4] => dif[4].DATAIN
+value[0] => ~NO_FANOUT~
+value[1] => ~NO_FANOUT~
+button_0 => ~NO_FANOUT~
+button_1 => ~NO_FANOUT~
+button_2 => ~NO_FANOUT~
+button_3 => ~NO_FANOUT~
+score[0] <= score[0].DB_MAX_OUTPUT_PORT_TYPE
+score[1] <= score[1].DB_MAX_OUTPUT_PORT_TYPE
+score[2] <= score[2].DB_MAX_OUTPUT_PORT_TYPE
+score[3] <= score[3].DB_MAX_OUTPUT_PORT_TYPE
+score[4] <= score[4].DB_MAX_OUTPUT_PORT_TYPE
+sel_turn <= comb.DB_MAX_OUTPUT_PORT_TYPE
+s_addr[0] <= r_s_addr[0].DB_MAX_OUTPUT_PORT_TYPE
+s_addr[1] <= r_s_addr[1].DB_MAX_OUTPUT_PORT_TYPE
+s_addr[2] <= r_s_addr[2].DB_MAX_OUTPUT_PORT_TYPE
+s_addr[3] <= r_s_addr[3].DB_MAX_OUTPUT_PORT_TYPE
+s_addr[4] <= r_s_addr[4].DB_MAX_OUTPUT_PORT_TYPE
+s_we <= r_s_we.DB_MAX_OUTPUT_PORT_TYPE
+l_sync_reset <= r_l_sync_reset.DB_MAX_OUTPUT_PORT_TYPE
+l_en <= r_l_en.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|genius|difficulty_decod:inst9
+d_in[0] => Mux0.IN5
+d_in[0] => d_out[3].DATAIN
+d_in[1] => Mux0.IN4
+d_out[0] <= <GND>
+d_out[1] <= <GND>
+d_out[2] <= <GND>
+d_out[3] <= d_in[0].DB_MAX_OUTPUT_PORT_TYPE
+d_out[4] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|genius|lfsr:inst2
+clk => r_lfsr[1].CLK
+clk => r_lfsr[2].CLK
+clk => r_lfsr[3].CLK
+clk => r_lfsr[4].CLK
+clk => r_lfsr[5].CLK
+clk => r_lfsr[6].CLK
+clk => r_lfsr[7].CLK
+rstb => r_lfsr[1].PRESET
+rstb => r_lfsr[2].PRESET
+rstb => r_lfsr[3].PRESET
+rstb => r_lfsr[4].PRESET
+rstb => r_lfsr[5].PRESET
+rstb => r_lfsr[6].PRESET
+rstb => r_lfsr[7].PRESET
+sync_reset => r_lfsr.OUTPUTSELECT
+sync_reset => r_lfsr.OUTPUTSELECT
+sync_reset => r_lfsr.OUTPUTSELECT
+sync_reset => r_lfsr.OUTPUTSELECT
+sync_reset => r_lfsr.OUTPUTSELECT
+sync_reset => r_lfsr.OUTPUTSELECT
+sync_reset => r_lfsr.OUTPUTSELECT
+seed[0] => r_lfsr.DATAB
+seed[1] => r_lfsr.DATAB
+seed[2] => r_lfsr.DATAB
+seed[3] => r_lfsr.DATAB
+seed[4] => r_lfsr.DATAB
+seed[5] => r_lfsr.DATAB
+seed[6] => r_lfsr.DATAB
+en => r_lfsr.OUTPUTSELECT
+en => r_lfsr.OUTPUTSELECT
+en => r_lfsr.OUTPUTSELECT
+en => r_lfsr.OUTPUTSELECT
+en => r_lfsr.OUTPUTSELECT
+en => r_lfsr.OUTPUTSELECT
+en => r_lfsr.OUTPUTSELECT
+lsfr[0] <= r_lfsr[1].DB_MAX_OUTPUT_PORT_TYPE
+lsfr[1] <= r_lfsr[2].DB_MAX_OUTPUT_PORT_TYPE
+lsfr[2] <= r_lfsr[3].DB_MAX_OUTPUT_PORT_TYPE
+lsfr[3] <= r_lfsr[4].DB_MAX_OUTPUT_PORT_TYPE
+lsfr[4] <= r_lfsr[5].DB_MAX_OUTPUT_PORT_TYPE
+lsfr[5] <= r_lfsr[6].DB_MAX_OUTPUT_PORT_TYPE
+lsfr[6] <= r_lfsr[7].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|genius|mux21:inst4
+a => o.DATAB
+b => o.DATAA
+s => o.OUTPUTSELECT
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|genius|mux21:inst6
+a => o.DATAB
+b => o.DATAA
+s => o.OUTPUTSELECT
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|genius|mux21:inst7
+a => o.DATAB
+b => o.DATAA
+s => o.OUTPUTSELECT
+o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+

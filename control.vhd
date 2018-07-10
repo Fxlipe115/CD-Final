@@ -8,10 +8,18 @@ entity control is
 		clk			: in std_logic;
 		rst			: in std_logic;
 		difficulty	: in std_logic_vector(4 downto 0);
+		value			: in std_logic_vector(1 downto 0);
+		button_0		: in std_logic;
+		button_1		: in std_logic;
+		button_2		: in std_logic;
+		button_3		: in std_logic;
+		score			: out std_logic_vector(4 downto 0);
+		sel_turn		: out std_logic;
 		s_addr		: out std_logic_vector(4 downto 0);
 		s_we			: out std_logic;
 		l_sync_reset: out std_logic;
-		l_en        : out std_logic
+		l_en        : out std_logic;
+		en_show			: out std_logic
 	);
 end entity;
 
