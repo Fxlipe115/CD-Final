@@ -47,8 +47,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 80)
 		(input)
-		(text "value[1..0]" (rect 0 0 40 12)(font "Arial" ))
-		(text "value[1..0]" (rect 21 75 61 87)(font "Arial" ))
+		(text "data[1..0]" (rect 0 0 35 12)(font "Arial" ))
+		(text "data[1..0]" (rect 21 75 56 87)(font "Arial" ))
 		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port

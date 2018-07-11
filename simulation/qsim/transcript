@@ -21,11 +21,11 @@
 # Loading cycloneiii_ver.cycloneiii_clkctrl
 # Loading cycloneiii_ver.cycloneiii_mux41
 # Loading cycloneiii_ver.cycloneiii_ena_reg
-# Loading cycloneiii_ver.cycloneiii_lcell_comb
 # Loading altera_ver.dffeas
+# Loading cycloneiii_ver.cycloneiii_lcell_comb
 # Loading work.genius_vlg_sample_tst
 # Loading work.genius_vlg_check_tst
 # Loading altera_ver.PRIM_GDFF_LOW
 # Simulation passed !
-# ** Note: $finish    : genius.vwf.vt(171)
+# ** Note: $finish    : genius.vwf.vt(341)
 #    Time: 1 us  Iteration: 0  Instance: /genius_vlg_vec_tst/tb_out

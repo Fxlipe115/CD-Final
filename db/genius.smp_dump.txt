@@ -1,8 +1,15 @@
 
 State Machine - |genius|control:inst|state
-Name state.game_over state.gen2 state.gen1 state.gen0 state.init 
-state.init 0 0 0 0 0 
-state.gen0 0 0 0 1 1 
-state.gen1 0 0 1 0 1 
-state.gen2 0 1 0 0 1 
-state.game_over 1 0 0 0 1 
+Name state.game_over state.cpu3 state.cpu2 state.cpu1 state.cpu0 state.play2 state.play1 state.play0 state.gen2 state.gen1 state.gen0 state.init 
+state.init 0 0 0 0 0 0 0 0 0 0 0 0 
+state.gen0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.gen1 0 0 0 0 0 0 0 0 0 1 0 1 
+state.gen2 0 0 0 0 0 0 0 0 1 0 0 1 
+state.play0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.play1 0 0 0 0 0 0 1 0 0 0 0 1 
+state.play2 0 0 0 0 0 1 0 0 0 0 0 1 
+state.cpu0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.cpu1 0 0 0 1 0 0 0 0 0 0 0 1 
+state.cpu2 0 0 1 0 0 0 0 0 0 0 0 1 
+state.cpu3 0 1 0 0 0 0 0 0 0 0 0 1 
+state.game_over 1 0 0 0 0 0 0 0 0 0 0 1 

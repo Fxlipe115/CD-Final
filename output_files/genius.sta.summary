@@ -3,147 +3,39 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clk'
-Slack : -3.503
-TNS   : -218.966
-
-Type  : Slow 1200mV 85C Model Setup 'control:inst|state.init'
-Slack : -2.562
-TNS   : -2.562
-
-Type  : Slow 1200mV 85C Model Setup 'control:inst|state.gen0'
-Slack : -2.395
-TNS   : -4.580
-
-Type  : Slow 1200mV 85C Model Setup 'control:inst|state.game_over'
-Slack : -1.251
-TNS   : -5.595
-
-Type  : Slow 1200mV 85C Model Hold 'control:inst|state.game_over'
-Slack : -1.763
-TNS   : -6.987
-
-Type  : Slow 1200mV 85C Model Hold 'control:inst|state.init'
-Slack : -0.908
-TNS   : -0.908
-
-Type  : Slow 1200mV 85C Model Hold 'control:inst|state.gen0'
-Slack : -0.585
-TNS   : -0.585
+Slack : -4.964
+TNS   : -250.698
 
 Type  : Slow 1200mV 85C Model Hold 'clk'
-Slack : -0.207
-TNS   : -0.285
+Slack : 0.343
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -89.000
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'control:inst|state.game_over'
-Slack : 0.376
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'control:inst|state.init'
-Slack : 0.382
-TNS   : 0.000
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'control:inst|state.gen0'
-Slack : 0.420
-TNS   : 0.000
+TNS   : -117.000
 
 Type  : Slow 1200mV 0C Model Setup 'clk'
-Slack : -3.018
-TNS   : -186.984
-
-Type  : Slow 1200mV 0C Model Setup 'control:inst|state.init'
-Slack : -2.307
-TNS   : -2.307
-
-Type  : Slow 1200mV 0C Model Setup 'control:inst|state.gen0'
-Slack : -2.075
-TNS   : -4.077
-
-Type  : Slow 1200mV 0C Model Setup 'control:inst|state.game_over'
-Slack : -1.159
-TNS   : -5.180
-
-Type  : Slow 1200mV 0C Model Hold 'control:inst|state.game_over'
-Slack : -1.547
-TNS   : -6.068
-
-Type  : Slow 1200mV 0C Model Hold 'control:inst|state.init'
-Slack : -0.811
-TNS   : -0.811
-
-Type  : Slow 1200mV 0C Model Hold 'control:inst|state.gen0'
-Slack : -0.545
-TNS   : -0.545
+Slack : -4.368
+TNS   : -215.026
 
 Type  : Slow 1200mV 0C Model Hold 'clk'
-Slack : -0.192
-TNS   : -0.305
+Slack : 0.299
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -89.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'control:inst|state.init'
-Slack : 0.420
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'control:inst|state.game_over'
-Slack : 0.433
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'control:inst|state.gen0'
-Slack : 0.462
-TNS   : 0.000
+TNS   : -117.000
 
 Type  : Fast 1200mV 0C Model Setup 'clk'
-Slack : -1.839
-TNS   : -109.210
-
-Type  : Fast 1200mV 0C Model Setup 'control:inst|state.init'
-Slack : -1.273
-TNS   : -1.273
-
-Type  : Fast 1200mV 0C Model Setup 'control:inst|state.gen0'
-Slack : -1.060
-TNS   : -2.038
-
-Type  : Fast 1200mV 0C Model Setup 'control:inst|state.game_over'
-Slack : -0.427
-TNS   : -1.786
-
-Type  : Fast 1200mV 0C Model Hold 'control:inst|state.game_over'
-Slack : -1.061
-TNS   : -4.412
-
-Type  : Fast 1200mV 0C Model Hold 'control:inst|state.init'
-Slack : -0.504
-TNS   : -0.504
-
-Type  : Fast 1200mV 0C Model Hold 'control:inst|state.gen0'
-Slack : -0.303
-TNS   : -0.303
+Slack : -2.386
+TNS   : -98.997
 
 Type  : Fast 1200mV 0C Model Hold 'clk'
-Slack : -0.220
-TNS   : -0.791
+Slack : 0.179
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -93.757
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'control:inst|state.game_over'
-Slack : 0.332
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'control:inst|state.init'
-Slack : 0.378
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'control:inst|state.gen0'
-Slack : 0.391
-TNS   : 0.000
+TNS   : -123.952
 
 ------------------------------------------------------------
