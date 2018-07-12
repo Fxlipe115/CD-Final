@@ -20,5 +20,6 @@ with num select seven_seg <=
 	"0100000" when "0110",
 	"0001111" when "0111",
 	"0000000" when "1000",
-	"0000100" when "1001";
+	"0000100" when "1001",
+	"1111111" when others;
 end arch;

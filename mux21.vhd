@@ -12,6 +12,7 @@ end entity;
 
 architecture rtl of mux21 is
 begin
-	o <= a when s = '0' else
-		  b when s = '1';
+	with s select o <=
+		a when '0',
+		b when '1';
 end architecture rtl;

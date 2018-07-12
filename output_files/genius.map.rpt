@@ -1,5 +1,5 @@
 Analysis & Synthesis report for genius
-Wed Jul 11 03:29:07 2018
+Wed Jul 11 23:57:09 2018
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
@@ -10,7 +10,19 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |genius|control:inst|state
+  9. User-Specified and Inferred Latches
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: clk_divider:inst14
+ 15. Parameter Settings for User Entity Instance: sequence:inst1
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
 
 
 
@@ -36,20 +48,20 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Wed Jul 11 03:29:07 2018          ;
+; Analysis & Synthesis Status        ; Successful - Wed Jul 11 23:57:09 2018      ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
 ; Revision Name                      ; genius                                     ;
 ; Top-level Entity Name              ; genius                                     ;
 ; Family                             ; Cyclone III                                ;
-; Total logic elements               ; N/A until Partition Merge                  ;
-;     Total combinational functions  ; N/A until Partition Merge                  ;
-;     Dedicated logic registers      ; N/A until Partition Merge                  ;
-; Total registers                    ; N/A until Partition Merge                  ;
-; Total pins                         ; N/A until Partition Merge                  ;
-; Total virtual pins                 ; N/A until Partition Merge                  ;
-; Total memory bits                  ; N/A until Partition Merge                  ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                  ;
-; Total PLLs                         ; N/A until Partition Merge                  ;
+; Total logic elements               ; 343                                        ;
+;     Total combinational functions  ; 328                                        ;
+;     Dedicated logic registers      ; 150                                        ;
+; Total registers                    ; 150                                        ;
+; Total pins                         ; 33                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
 +------------------------------------+--------------------------------------------+
 
 
@@ -151,15 +163,209 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                          ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path                                ; Library ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------+---------+
+; u_2_to_4_bit.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Graeff/Documents/git/CD-Final/u_2_to_4_bit.vhd     ;         ;
+; decod_7seg.vhd                   ; yes             ; User VHDL File                     ; C:/Users/Graeff/Documents/git/CD-Final/decod_7seg.vhd       ;         ;
+; sequence.vhd                     ; yes             ; User VHDL File                     ; C:/Users/Graeff/Documents/git/CD-Final/sequence.vhd         ;         ;
+; control.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Graeff/Documents/git/CD-Final/control.vhd          ;         ;
+; lsfr.vhd                         ; yes             ; User VHDL File                     ; C:/Users/Graeff/Documents/git/CD-Final/lsfr.vhd             ;         ;
+; genius.bdf                       ; yes             ; User Block Diagram/Schematic File  ; C:/Users/Graeff/Documents/git/CD-Final/genius.bdf           ;         ;
+; difficulty_decod.vhd             ; yes             ; User VHDL File                     ; C:/Users/Graeff/Documents/git/CD-Final/difficulty_decod.vhd ;         ;
+; mux21.vhd                        ; yes             ; User VHDL File                     ; C:/Users/Graeff/Documents/git/CD-Final/mux21.vhd            ;         ;
+; led_decod.vhd                    ; yes             ; User VHDL File                     ; C:/Users/Graeff/Documents/git/CD-Final/led_decod.vhd        ;         ;
+; clk_divider.vhd                  ; yes             ; User VHDL File                     ; C:/Users/Graeff/Documents/git/CD-Final/clk_divider.vhd      ;         ;
+; counter.vhd                      ; yes             ; User VHDL File                     ; C:/Users/Graeff/Documents/git/CD-Final/counter.vhd          ;         ;
+; score_to_bcd.vhd                 ; yes             ; User VHDL File                     ; C:/Users/Graeff/Documents/git/CD-Final/score_to_bcd.vhd     ;         ;
+; clock_count.vhd                  ; yes             ; User VHDL File                     ; C:/Users/Graeff/Documents/git/CD-Final/clock_count.vhd      ;         ;
++----------------------------------+-----------------+------------------------------------+-------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                              ;
++---------------------------------------------+----------------------------+
+; Resource                                    ; Usage                      ;
++---------------------------------------------+----------------------------+
+; Estimated Total logic elements              ; 343                        ;
+;                                             ;                            ;
+; Total combinational functions               ; 328                        ;
+; Logic element usage by number of LUT inputs ;                            ;
+;     -- 4 input functions                    ; 136                        ;
+;     -- 3 input functions                    ; 61                         ;
+;     -- <=2 input functions                  ; 131                        ;
+;                                             ;                            ;
+; Logic elements by mode                      ;                            ;
+;     -- normal mode                          ; 295                        ;
+;     -- arithmetic mode                      ; 33                         ;
+;                                             ;                            ;
+; Total registers                             ; 150                        ;
+;     -- Dedicated logic registers            ; 150                        ;
+;     -- I/O registers                        ; 0                          ;
+;                                             ;                            ;
+; I/O pins                                    ; 33                         ;
+; Embedded Multiplier 9-bit elements          ; 0                          ;
+; Maximum fan-out node                        ; clk_divider:inst14|clk_out ;
+; Maximum fan-out                             ; 114                        ;
+; Total fan-out                               ; 1439                       ;
+; Average fan-out                             ; 2.65                       ;
++---------------------------------------------+----------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                     ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------+--------------+
+; Compilation Hierarchy Node  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name            ; Library Name ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------+--------------+
+; |genius                     ; 328 (8)           ; 150 (0)      ; 0           ; 0            ; 0       ; 0         ; 33   ; 0            ; |genius                        ; work         ;
+;    |clk_divider:inst14|     ; 48 (48)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |genius|clk_divider:inst14     ; work         ;
+;    |clock_count:inst25|     ; 10 (10)           ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |genius|clock_count:inst25     ; work         ;
+;    |control:inst|           ; 77 (77)           ; 38 (38)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |genius|control:inst           ; work         ;
+;    |counter:inst15|         ; 2 (2)             ; 3 (3)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |genius|counter:inst15         ; work         ;
+;    |decod_7seg:inst21|      ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |genius|decod_7seg:inst21      ; work         ;
+;    |decod_7seg:inst22|      ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |genius|decod_7seg:inst22      ; work         ;
+;    |decod_7seg:inst23|      ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |genius|decod_7seg:inst23      ; work         ;
+;    |difficulty_decod:inst9| ; 3 (3)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |genius|difficulty_decod:inst9 ; work         ;
+;    |lfsr:inst2|             ; 8 (8)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |genius|lfsr:inst2             ; work         ;
+;    |score_to_bcd:inst18|    ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |genius|score_to_bcd:inst18    ; work         ;
+;    |sequence:inst1|         ; 154 (154)         ; 69 (69)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |genius|sequence:inst1         ; work         ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |genius|control:inst|state                                                                                                                                          ;
++-----------------+-----------------+------------+------------+------------+------------+-------------+-------------+-------------+------------+------------+------------+------------+
+; Name            ; state.game_over ; state.cpu3 ; state.cpu2 ; state.cpu1 ; state.cpu0 ; state.play2 ; state.play1 ; state.play0 ; state.gen2 ; state.gen1 ; state.gen0 ; state.init ;
++-----------------+-----------------+------------+------------+------------+------------+-------------+-------------+-------------+------------+------------+------------+------------+
+; state.init      ; 0               ; 0          ; 0          ; 0          ; 0          ; 0           ; 0           ; 0           ; 0          ; 0          ; 0          ; 0          ;
+; state.gen0      ; 0               ; 0          ; 0          ; 0          ; 0          ; 0           ; 0           ; 0           ; 0          ; 0          ; 1          ; 1          ;
+; state.gen1      ; 0               ; 0          ; 0          ; 0          ; 0          ; 0           ; 0           ; 0           ; 0          ; 1          ; 0          ; 1          ;
+; state.gen2      ; 0               ; 0          ; 0          ; 0          ; 0          ; 0           ; 0           ; 0           ; 1          ; 0          ; 0          ; 1          ;
+; state.play0     ; 0               ; 0          ; 0          ; 0          ; 0          ; 0           ; 0           ; 1           ; 0          ; 0          ; 0          ; 1          ;
+; state.play1     ; 0               ; 0          ; 0          ; 0          ; 0          ; 0           ; 1           ; 0           ; 0          ; 0          ; 0          ; 1          ;
+; state.play2     ; 0               ; 0          ; 0          ; 0          ; 0          ; 1           ; 0           ; 0           ; 0          ; 0          ; 0          ; 1          ;
+; state.cpu0      ; 0               ; 0          ; 0          ; 0          ; 1          ; 0           ; 0           ; 0           ; 0          ; 0          ; 0          ; 1          ;
+; state.cpu1      ; 0               ; 0          ; 0          ; 1          ; 0          ; 0           ; 0           ; 0           ; 0          ; 0          ; 0          ; 1          ;
+; state.cpu2      ; 0               ; 0          ; 1          ; 0          ; 0          ; 0           ; 0           ; 0           ; 0          ; 0          ; 0          ; 1          ;
+; state.cpu3      ; 0               ; 1          ; 0          ; 0          ; 0          ; 0           ; 0           ; 0           ; 0          ; 0          ; 0          ; 1          ;
+; state.game_over ; 1               ; 0          ; 0          ; 0          ; 0          ; 0           ; 0           ; 0           ; 0          ; 0          ; 0          ; 1          ;
++-----------------+-----------------+------------+------------+------------+------------+-------------+-------------+-------------+------------+------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; clock_count:inst25|en                              ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; control:inst|dif[0..2]                ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 3 ;                                        ;
++---------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 150   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 5     ;
+; Number of registers using Asynchronous Clear ; 54    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 99    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; lfsr:inst2|r_lfsr[5]                   ; 33      ;
+; lfsr:inst2|r_lfsr[6]                   ; 33      ;
+; lfsr:inst2|r_lfsr[1]                   ; 2       ;
+; lfsr:inst2|r_lfsr[7]                   ; 1       ;
+; lfsr:inst2|r_lfsr[2]                   ; 1       ;
+; lfsr:inst2|r_lfsr[3]                   ; 1       ;
+; lfsr:inst2|r_lfsr[4]                   ; 1       ;
+; Total number of inverted registers = 7 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; 5:1                ; 5 bits    ; 15 LEs        ; 10 LEs               ; 5 LEs                  ; Yes        ; |genius|control:inst|r_s_addr[4] ;
+; 14:1               ; 5 bits    ; 45 LEs        ; 5 LEs                ; 40 LEs                 ; Yes        ; |genius|control:inst|count[4]    ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |genius|lfsr:inst2|r_lfsr[1]     ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; No         ; |genius|control:inst|state       ;
+; 10:1               ; 5 bits    ; 30 LEs        ; 5 LEs                ; 25 LEs                 ; No         ; |genius|control:inst|r_score     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clk_divider:inst14 ;
++----------------+----------+-------------------------------------+
+; Parameter Name ; Value    ; Type                                ;
++----------------+----------+-------------------------------------+
+; FACTOR         ; 20000000 ; Signed Integer                      ;
++----------------+----------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: sequence:inst1 ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; DATA_WIDTH     ; 2     ; Signed Integer                     ;
+; ADDR_WIDTH     ; 5     ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
-    Info: Processing started: Wed Jul 11 03:29:04 2018
+    Info: Processing started: Wed Jul 11 23:57:04 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off genius -c genius
 Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file u_2_to_4_bit.vhd
+    Info (12022): Found design unit 1: u_2_to_4_bit-arch
+    Info (12023): Found entity 1: u_2_to_4_bit
+Info (12021): Found 2 design units, including 1 entities, in source file decod_7seg.vhd
+    Info (12022): Found design unit 1: decod_7seg-arch
+    Info (12023): Found entity 1: decod_7seg
 Info (12021): Found 2 design units, including 1 entities, in source file sequence.vhd
     Info (12022): Found design unit 1: sequence-rtl
     Info (12023): Found entity 1: sequence
@@ -174,24 +380,57 @@ Info (12021): Found 1 design units, including 1 entities, in source file genius.
 Info (12021): Found 2 design units, including 1 entities, in source file difficulty_decod.vhd
     Info (12022): Found design unit 1: difficulty_decod-arch
     Info (12023): Found entity 1: difficulty_decod
-Info (12021): Found 2 design units, including 1 entities, in source file 7seg_decod.vhd
-    Info (12022): Found design unit 1: decod_7seg-arch
-    Info (12023): Found entity 1: decod_7seg
 Info (12021): Found 2 design units, including 1 entities, in source file mux21.vhd
     Info (12022): Found design unit 1: mux21-rtl
     Info (12023): Found entity 1: mux21
 Info (12021): Found 2 design units, including 1 entities, in source file led_decod.vhd
     Info (12022): Found design unit 1: decod_led-arch
     Info (12023): Found entity 1: decod_led
-Info (12021): Found 1 design units, including 1 entities, in source file clk_divider.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file clk_divider.vhd
+    Info (12022): Found design unit 1: clk_divider-stl
     Info (12023): Found entity 1: clk_divider
+Info (12021): Found 2 design units, including 1 entities, in source file counter.vhd
+    Info (12022): Found design unit 1: counter-arch
+    Info (12023): Found entity 1: counter
+Info (12021): Found 2 design units, including 1 entities, in source file score_to_bcd.vhd
+    Info (12022): Found design unit 1: score_to_bcd-arch
+    Info (12023): Found entity 1: score_to_bcd
+Info (12021): Found 2 design units, including 1 entities, in source file clock_count.vhd
+    Info (12022): Found design unit 1: clock_count-arch
+    Info (12023): Found entity 1: clock_count
 Info (12127): Elaborating entity "genius" for the top level hierarchy
-Error (275024): Width mismatch in port "num[3..0]" of instance "inst3" and type decod_7seg -- source is ""score[4..0]" (ID control:inst)"
-Error (12153): Can't elaborate top-level user hierarchy
-Error: Quartus II 64-Bit Analysis & Synthesis was unsuccessful. 2 errors, 1 warning
-    Error: Peak virtual memory: 4692 megabytes
-    Error: Processing ended: Wed Jul 11 03:29:07 2018
-    Error: Elapsed time: 00:00:03
-    Error: Total CPU time (on all processors): 00:00:02
+Info (12128): Elaborating entity "control" for hierarchy "control:inst"
+Info (12128): Elaborating entity "clk_divider" for hierarchy "clk_divider:inst14"
+Info (12128): Elaborating entity "sequence" for hierarchy "sequence:inst1"
+Info (12128): Elaborating entity "lfsr" for hierarchy "lfsr:inst2"
+Info (12128): Elaborating entity "clock_count" for hierarchy "clock_count:inst25"
+Warning (10631): VHDL Process Statement warning at clock_count.vhd(20): inferring latch(es) for signal or variable "en", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "en" at clock_count.vhd(20)
+Info (12128): Elaborating entity "difficulty_decod" for hierarchy "difficulty_decod:inst9"
+Info (12128): Elaborating entity "counter" for hierarchy "counter:inst15"
+Info (12128): Elaborating entity "mux21" for hierarchy "mux21:inst5"
+Info (12128): Elaborating entity "decod_led" for hierarchy "decod_led:inst8"
+Info (12128): Elaborating entity "decod_7seg" for hierarchy "decod_7seg:inst21"
+Info (12128): Elaborating entity "u_2_to_4_bit" for hierarchy "u_2_to_4_bit:inst24"
+Info (12128): Elaborating entity "score_to_bcd" for hierarchy "score_to_bcd:inst18"
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "sequence:inst1|ram" is uninferred due to inappropriate RAM size
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "difficulty[5]" is stuck at GND
+    Warning (13410): Pin "score1[5]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 377 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
+    Info (21059): Implemented 25 output pins
+    Info (21061): Implemented 344 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 5 warnings
+    Info: Peak virtual memory: 4699 megabytes
+    Info: Processing ended: Wed Jul 11 23:57:09 2018
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:04
 
 

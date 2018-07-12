@@ -48,25 +48,35 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
-set_global_assignment -name VHDL_FILE sequence.vhd
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name VECTOR_WAVEFORM_FILE sequence.vwf
 set_global_assignment -name EDA_NETLIST_WRITER_OUTPUT_DIR "C:/Users/Graeff/Documents/git/CD-Final/simulation/qsim/" -section_id eda_simulation
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST ON -section_id eda_simulation
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name VHDL_FILE u_2_to_4_bit.vhd
+set_global_assignment -name VHDL_FILE decod_7seg.vhd
+set_global_assignment -name VHDL_FILE sequence.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE sequence.vwf
 set_global_assignment -name VHDL_FILE control.vhd
 set_global_assignment -name VHDL_FILE lsfr.vhd
 set_global_assignment -name BDF_FILE genius.bdf
 set_global_assignment -name VECTOR_WAVEFORM_FILE lsfr.vwf
 set_global_assignment -name VECTOR_WAVEFORM_FILE control.vwf
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name VECTOR_WAVEFORM_FILE genius.vwf
 set_global_assignment -name VHDL_FILE difficulty_decod.vhd
-set_global_assignment -name VHDL_FILE 7seg_decod.vhd
 set_global_assignment -name VHDL_FILE mux21.vhd
 set_global_assignment -name VHDL_FILE led_decod.vhd
 set_global_assignment -name VHDL_FILE clk_divider.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE clk_divider.vwf
+set_global_assignment -name VHDL_FILE counter.vhd
+set_global_assignment -name VHDL_FILE score_to_bcd.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE score_to_bcd.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE genius2.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE counter.vwf
+set_global_assignment -name VHDL_FILE clock_count.vhd
+set_global_assignment -name VECTOR_WAVEFORM_FILE clock_count.vwf
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

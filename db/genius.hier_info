@@ -1,10 +1,12 @@
 |genius
 led0 <= inst10.DB_MAX_OUTPUT_PORT_TYPE
-clk => control:inst.clk
-clk => sequence:inst1.clk
-clk => lfsr:inst2.clk
-rst => control:inst.rst
-rst => lfsr:inst2.rstb
+clk => clk_divider:inst14.clk_in
+clk => clock_count:inst25.clk
+clk => counter:inst15.clk
+begin => clk_divider:inst14.reset
+begin => control:inst.rst
+begin => lfsr:inst2.rstb
+begin => clock_count:inst25.dis
 button_0 => control:inst.button_0
 button_0 => mux21:inst5.a
 button_1 => control:inst.button_1
@@ -13,23 +15,33 @@ button_2 => control:inst.button_2
 button_2 => mux21:inst6.a
 button_3 => control:inst.button_3
 button_3 => mux21:inst7.a
-seed[0] => lfsr:inst2.seed[0]
-seed[1] => lfsr:inst2.seed[1]
-seed[2] => lfsr:inst2.seed[2]
-seed[3] => lfsr:inst2.seed[3]
-seed[4] => lfsr:inst2.seed[4]
-seed[5] => lfsr:inst2.seed[5]
-seed[6] => lfsr:inst2.seed[6]
-dif[0] => difficulty_decod:inst9.d_in[0]
-dif[1] => difficulty_decod:inst9.d_in[1]
+rst => clock_count:inst25.rst
+rst => counter:inst15.rst
+dif => counter:inst15.inc
 led1 <= inst11.DB_MAX_OUTPUT_PORT_TYPE
 led2 <= inst12.DB_MAX_OUTPUT_PORT_TYPE
 led3 <= inst13.DB_MAX_OUTPUT_PORT_TYPE
-score[0] <= control:inst.score[0]
-score[1] <= control:inst.score[1]
-score[2] <= control:inst.score[2]
-score[3] <= control:inst.score[3]
-score[4] <= control:inst.score[4]
+difficulty[0] <= decod_7seg:inst21.seven_seg[0]
+difficulty[1] <= decod_7seg:inst21.seven_seg[1]
+difficulty[2] <= decod_7seg:inst21.seven_seg[2]
+difficulty[3] <= decod_7seg:inst21.seven_seg[3]
+difficulty[4] <= decod_7seg:inst21.seven_seg[4]
+difficulty[5] <= decod_7seg:inst21.seven_seg[5]
+difficulty[6] <= decod_7seg:inst21.seven_seg[6]
+score0[0] <= decod_7seg:inst22.seven_seg[0]
+score0[1] <= decod_7seg:inst22.seven_seg[1]
+score0[2] <= decod_7seg:inst22.seven_seg[2]
+score0[3] <= decod_7seg:inst22.seven_seg[3]
+score0[4] <= decod_7seg:inst22.seven_seg[4]
+score0[5] <= decod_7seg:inst22.seven_seg[5]
+score0[6] <= decod_7seg:inst22.seven_seg[6]
+score1[0] <= decod_7seg:inst23.seven_seg[0]
+score1[1] <= decod_7seg:inst23.seven_seg[1]
+score1[2] <= decod_7seg:inst23.seven_seg[2]
+score1[3] <= decod_7seg:inst23.seven_seg[3]
+score1[4] <= decod_7seg:inst23.seven_seg[4]
+score1[5] <= decod_7seg:inst23.seven_seg[5]
+score1[6] <= decod_7seg:inst23.seven_seg[6]
 
 
 |genius|control:inst
@@ -131,6 +143,62 @@ l_en <= r_l_en.DB_MAX_OUTPUT_PORT_TYPE
 en_show <= r_en_show.DB_MAX_OUTPUT_PORT_TYPE
 
 
+|genius|clk_divider:inst14
+clk_in => clk_out~reg0.CLK
+clk_in => count[0].CLK
+clk_in => count[1].CLK
+clk_in => count[2].CLK
+clk_in => count[3].CLK
+clk_in => count[4].CLK
+clk_in => count[5].CLK
+clk_in => count[6].CLK
+clk_in => count[7].CLK
+clk_in => count[8].CLK
+clk_in => count[9].CLK
+clk_in => count[10].CLK
+clk_in => count[11].CLK
+clk_in => count[12].CLK
+clk_in => count[13].CLK
+clk_in => count[14].CLK
+clk_in => count[15].CLK
+clk_in => count[16].CLK
+clk_in => count[17].CLK
+clk_in => count[18].CLK
+clk_in => count[19].CLK
+clk_in => count[20].CLK
+clk_in => count[21].CLK
+clk_in => count[22].CLK
+clk_in => count[23].CLK
+clk_in => count[24].CLK
+reset => count[0].ACLR
+reset => count[1].ACLR
+reset => count[2].ACLR
+reset => count[3].ACLR
+reset => count[4].ACLR
+reset => count[5].ACLR
+reset => count[6].ACLR
+reset => count[7].ACLR
+reset => count[8].ACLR
+reset => count[9].ACLR
+reset => count[10].ACLR
+reset => count[11].ACLR
+reset => count[12].ACLR
+reset => count[13].ACLR
+reset => count[14].ACLR
+reset => count[15].ACLR
+reset => count[16].ACLR
+reset => count[17].ACLR
+reset => count[18].ACLR
+reset => count[19].ACLR
+reset => count[20].ACLR
+reset => count[21].ACLR
+reset => count[22].ACLR
+reset => count[23].ACLR
+reset => count[24].ACLR
+reset => clk_out~reg0.ENA
+clk_out <= clk_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |genius|sequence:inst1
 clk => ram~7.CLK
 clk => ram~0.CLK
@@ -216,6 +284,41 @@ lsfr[5] <= r_lfsr[6].DB_MAX_OUTPUT_PORT_TYPE
 lsfr[6] <= r_lfsr[7].DB_MAX_OUTPUT_PORT_TYPE
 
 
+|genius|clock_count:inst25
+clk => r_o[0].CLK
+clk => r_o[1].CLK
+clk => r_o[2].CLK
+clk => r_o[3].CLK
+clk => r_o[4].CLK
+clk => r_o[5].CLK
+clk => r_o[6].CLK
+rst => en.IN0
+rst => r_o[0].ACLR
+rst => r_o[1].ACLR
+rst => r_o[2].ACLR
+rst => r_o[3].ACLR
+rst => r_o[4].ACLR
+rst => r_o[5].ACLR
+rst => r_o[6].ACLR
+rst => comb.IN1
+rst => comb.IN1
+dis => en.IN1
+dis => r_o[6].ENA
+dis => r_o[5].ENA
+dis => r_o[4].ENA
+dis => r_o[3].ENA
+dis => r_o[2].ENA
+dis => r_o[1].ENA
+dis => r_o[0].ENA
+o[0] <= r_o[0].DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= r_o[1].DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= r_o[2].DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= r_o[3].DB_MAX_OUTPUT_PORT_TYPE
+o[4] <= r_o[4].DB_MAX_OUTPUT_PORT_TYPE
+o[5] <= r_o[5].DB_MAX_OUTPUT_PORT_TYPE
+o[6] <= r_o[6].DB_MAX_OUTPUT_PORT_TYPE
+
+
 |genius|difficulty_decod:inst9
 d_in[0] => Mux0.IN5
 d_in[0] => d_out[3].DATAIN
@@ -225,6 +328,19 @@ d_out[1] <= <GND>
 d_out[2] <= <GND>
 d_out[3] <= d_in[0].DB_MAX_OUTPUT_PORT_TYPE
 d_out[4] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|genius|counter:inst15
+inc => process_0.IN1
+inc => inc_old.DATAIN
+clk => inc_old.CLK
+clk => r_o[0].CLK
+clk => r_o[1].CLK
+rst => inc_old.ACLR
+rst => r_o[0].ACLR
+rst => r_o[1].ACLR
+o[0] <= r_o[0].DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= r_o[1].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |genius|mux21:inst5
@@ -268,5 +384,152 @@ a => o.DATAB
 b => o.DATAA
 s => o.OUTPUTSELECT
 o <= o.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|genius|decod_7seg:inst21
+num[0] => Mux0.IN19
+num[0] => Mux1.IN19
+num[0] => Mux2.IN19
+num[0] => Mux3.IN19
+num[0] => Mux4.IN19
+num[0] => Mux5.IN19
+num[0] => Mux6.IN19
+num[1] => Mux0.IN18
+num[1] => Mux1.IN18
+num[1] => Mux2.IN18
+num[1] => Mux3.IN18
+num[1] => Mux4.IN18
+num[1] => Mux5.IN18
+num[1] => Mux6.IN18
+num[2] => Mux0.IN17
+num[2] => Mux1.IN17
+num[2] => Mux2.IN17
+num[2] => Mux3.IN17
+num[2] => Mux4.IN17
+num[2] => Mux5.IN17
+num[2] => Mux6.IN17
+num[3] => Mux0.IN16
+num[3] => Mux1.IN16
+num[3] => Mux2.IN16
+num[3] => Mux3.IN16
+num[3] => Mux4.IN16
+num[3] => Mux5.IN16
+num[3] => Mux6.IN16
+seven_seg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|genius|u_2_to_4_bit:inst24
+d_in[0] => d_out[0].DATAIN
+d_in[1] => d_out[1].DATAIN
+d_out[0] <= d_in[0].DB_MAX_OUTPUT_PORT_TYPE
+d_out[1] <= d_in[1].DB_MAX_OUTPUT_PORT_TYPE
+d_out[2] <= <GND>
+d_out[3] <= <GND>
+
+
+|genius|decod_7seg:inst22
+num[0] => Mux0.IN19
+num[0] => Mux1.IN19
+num[0] => Mux2.IN19
+num[0] => Mux3.IN19
+num[0] => Mux4.IN19
+num[0] => Mux5.IN19
+num[0] => Mux6.IN19
+num[1] => Mux0.IN18
+num[1] => Mux1.IN18
+num[1] => Mux2.IN18
+num[1] => Mux3.IN18
+num[1] => Mux4.IN18
+num[1] => Mux5.IN18
+num[1] => Mux6.IN18
+num[2] => Mux0.IN17
+num[2] => Mux1.IN17
+num[2] => Mux2.IN17
+num[2] => Mux3.IN17
+num[2] => Mux4.IN17
+num[2] => Mux5.IN17
+num[2] => Mux6.IN17
+num[3] => Mux0.IN16
+num[3] => Mux1.IN16
+num[3] => Mux2.IN16
+num[3] => Mux3.IN16
+num[3] => Mux4.IN16
+num[3] => Mux5.IN16
+num[3] => Mux6.IN16
+seven_seg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|genius|score_to_bcd:inst18
+score[0] => d0[0].DATAIN
+score[1] => LessThan5.IN8
+score[1] => Add5.IN8
+score[1] => bcd.DATAA
+score[2] => LessThan3.IN8
+score[2] => Add3.IN8
+score[2] => bcd.DATAA
+score[3] => LessThan2.IN8
+score[3] => Add2.IN8
+score[3] => bcd.DATAA
+score[4] => LessThan1.IN8
+score[4] => Add1.IN8
+score[4] => bcd.DATAA
+d0[0] <= score[0].DB_MAX_OUTPUT_PORT_TYPE
+d0[1] <= bcd.DB_MAX_OUTPUT_PORT_TYPE
+d0[2] <= bcd.DB_MAX_OUTPUT_PORT_TYPE
+d0[3] <= bcd.DB_MAX_OUTPUT_PORT_TYPE
+d1[0] <= bcd.DB_MAX_OUTPUT_PORT_TYPE
+d1[1] <= bcd.DB_MAX_OUTPUT_PORT_TYPE
+d1[2] <= bcd.DB_MAX_OUTPUT_PORT_TYPE
+d1[3] <= bcd.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|genius|decod_7seg:inst23
+num[0] => Mux0.IN19
+num[0] => Mux1.IN19
+num[0] => Mux2.IN19
+num[0] => Mux3.IN19
+num[0] => Mux4.IN19
+num[0] => Mux5.IN19
+num[0] => Mux6.IN19
+num[1] => Mux0.IN18
+num[1] => Mux1.IN18
+num[1] => Mux2.IN18
+num[1] => Mux3.IN18
+num[1] => Mux4.IN18
+num[1] => Mux5.IN18
+num[1] => Mux6.IN18
+num[2] => Mux0.IN17
+num[2] => Mux1.IN17
+num[2] => Mux2.IN17
+num[2] => Mux3.IN17
+num[2] => Mux4.IN17
+num[2] => Mux5.IN17
+num[2] => Mux6.IN17
+num[3] => Mux0.IN16
+num[3] => Mux1.IN16
+num[3] => Mux2.IN16
+num[3] => Mux3.IN16
+num[3] => Mux4.IN16
+num[3] => Mux5.IN16
+num[3] => Mux6.IN16
+seven_seg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seven_seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
 
 
